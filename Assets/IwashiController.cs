@@ -9,23 +9,35 @@ public class IwashiController : MonoBehaviour
     public float rotateAngle;
     public float d_theta;
     public float speed;
+    public float my_force;
+    private bool isOnFloor;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isOnFloor = true;
     }
 
     void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "Floor" && isOnFloor)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 Rigidbody rb = this.GetComponent<Rigidbody> (); 
-                Vector3 force = new Vector3 (0.0f, 2f, 0.0f); 
-                rb.AddForce (force, ForceMode.Impulse); 
+                Vector3 force = new Vector3 (0.0f, my_force, 0.0f); 
+                rb.AddForce (force, ForceMode.Impulse);
+                isOnFloor = false;
             }
+
+        }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        isOnFloor = true;
+        if (other.gameObject.tag != "Floor")
+        {
+            //水の上に落ちなかった時の処理はここに書く
 
         }
     }
