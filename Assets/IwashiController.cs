@@ -16,6 +16,20 @@ public class IwashiController : MonoBehaviour
         
     }
 
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                Rigidbody rb = this.GetComponent<Rigidbody> (); 
+                Vector3 force = new Vector3 (0.0f, 2f, 0.0f); 
+                rb.AddForce (force, ForceMode.Impulse); 
+            }
+
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -54,7 +68,6 @@ public class IwashiController : MonoBehaviour
         {
             tempY += tempY >= 0 ? -d_theta * Mathf.Abs(tempY*0.1f) : d_theta * Mathf.Abs(tempY*0.1f);
         }
-
 
         tempY = Mathf.Clamp(tempY, -rotateAngle, rotateAngle);
         currentRotation.y = tempY;
