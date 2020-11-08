@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8f6497f1af8ea4fb1af4b05ad18220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.05
+  moveSpeed: 0.1
   rotateAngle: 15
   d_theta: 2
   speed: 0.08
