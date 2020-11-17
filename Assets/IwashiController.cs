@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class IwashiController : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class IwashiController : MonoBehaviour
     public float rotateAngle;
     public float d_theta;
     public float speed;
+    public float boostSpeed;
+    public int boostDuration;
     public float my_force;
     private bool isOnFloor;
-
     private int hp;
-
+    private int i;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,11 @@ public class IwashiController : MonoBehaviour
         tempY = Mathf.Clamp(tempY, -rotateAngle, rotateAngle);
         currentRotation.y = tempY;
         this.transform.localRotation = Quaternion.Euler(currentRotation);
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            Boost();
+        }
     }
 
     void GameOver()
@@ -95,4 +102,10 @@ public class IwashiController : MonoBehaviour
         SceneManager.LoadScene("Title");
     }
 
+    async Task Boost(){
+        Debug.Log("Boost!!");
+        for(i=boostDuration; i<0; i--){
+            speed = speed + boostSpeed*i;
+        }
+    }
 }

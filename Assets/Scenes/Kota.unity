@@ -463,6 +463,8 @@ MonoBehaviour:
   rotateAngle: 15
   d_theta: 2
   speed: 0.1
+  boostSpeed: 1
+  boostDuration: 1000
   my_force: 5
 --- !u!1 &906879454
 GameObject:
@@ -5403,6 +5405,10 @@ PrefabInstance:
     - target: {fileID: 1000011949594382, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
       propertyPath: m_Name
       value: Rock_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011949594382, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013308252972, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
       propertyPath: m_LocalPosition.x
