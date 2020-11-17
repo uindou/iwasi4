@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class IwashiController : MonoBehaviour
@@ -12,10 +13,13 @@ public class IwashiController : MonoBehaviour
     public float my_force;
     private bool isOnFloor;
 
+    private int hp;
+
     // Start is called before the first frame update
     void Start()
     {
         isOnFloor = true;
+        hp = 2;
     }
 
     void OnCollisionStay(Collision other)
@@ -37,7 +41,7 @@ public class IwashiController : MonoBehaviour
         isOnFloor = true;
         if (other.gameObject.tag != "Floor")
         {
-            //水の上に落ちなかった時の処理はここに書く
+            GameOver();
 
         }
     }
@@ -84,6 +88,11 @@ public class IwashiController : MonoBehaviour
         tempY = Mathf.Clamp(tempY, -rotateAngle, rotateAngle);
         currentRotation.y = tempY;
         this.transform.localRotation = Quaternion.Euler(currentRotation);
-            
     }
+
+    void GameOver()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
 }
