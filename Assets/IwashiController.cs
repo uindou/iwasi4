@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
+using System.Threading;
 using UnityEngine;
 
 public class IwashiController : MonoBehaviour
@@ -13,6 +15,10 @@ public class IwashiController : MonoBehaviour
     public float my_force;
     private bool isOnFloor;
     public bool survival_mode;
+    private bool is_already_entered;
+
+    private GameObject floor;
+    private FloorManager floorManager;
 
     private int hp;
 
@@ -20,7 +26,9 @@ public class IwashiController : MonoBehaviour
     void Start()
     {
         isOnFloor = true;
+        is_already_entered = false;
         hp = 2;
+
     }
 
     void OnCollisionStay(Collision other)
@@ -33,21 +41,33 @@ public class IwashiController : MonoBehaviour
                 Vector3 force = new Vector3 (0.0f, my_force, 0.0f); 
                 rb.AddForce (force, ForceMode.Impulse);
                 isOnFloor = false;
+                is_already_entered = true;
             }
 
         }
     }
+
     void OnCollisionEnter(Collision other)
     {
-        isOnFloor = true;
-        if (other.gameObject.tag != "Floor")
+        if (is_already_entered)
         {
-            if (survival_mode) {
-                GameOver();
+            is_already_entered = false;
+            if (other.gameObject.tag != "Floor")
+            {
+                if (survival_mode)
+                {
+                    GameOver();
+                }
             }
-
-
+            else
+            {
+                floor = other.gameObject;
+                floorManager = floor.GetComponent<FloorManager>();
+                floorManager.WaterLanding();
+                isOnFloor = true;
+            }
         }
+        
     }
 
     // Update is called once per frame
