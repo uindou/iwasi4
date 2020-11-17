@@ -605,6 +605,7 @@ MonoBehaviour:
   d_theta: 2
   speed: 0.08
   my_force: 15
+  survival_mode: 0
 --- !u!1 &906879454
 GameObject:
   m_ObjectHideFlags: 0

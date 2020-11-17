@@ -12,6 +12,7 @@ public class IwashiController : MonoBehaviour
     public float speed;
     public float my_force;
     private bool isOnFloor;
+    public bool survival_mode;
 
     private int hp;
 
@@ -41,7 +42,10 @@ public class IwashiController : MonoBehaviour
         isOnFloor = true;
         if (other.gameObject.tag != "Floor")
         {
-            GameOver();
+            if (survival_mode) {
+                GameOver();
+            }
+
 
         }
     }
