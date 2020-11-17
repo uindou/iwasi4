@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 91f46ca6db031a943aff009a18d376d4
+  - enabled: 1
     path: Assets/Scenes/Akiyama.unity
     guid: bfd4963c0c38bf5428a0336e167338e9
   - enabled: 1
     path: Assets/Scenes/Kota.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/PreStage.unity
+    guid: 7612f3a903c94514598fc1cb681b2a29
   m_configObjects: {}
