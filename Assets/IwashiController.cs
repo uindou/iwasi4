@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
+using System.Threading;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class IwashiController : MonoBehaviour
 {
@@ -11,17 +12,23 @@ public class IwashiController : MonoBehaviour
     public float rotateAngle;
     public float d_theta;
     public float speed;
-    public float boostSpeed;
-    public int boostDuration;
     public float my_force;
     private bool isOnFloor;
+    public bool survival_mode;
+    private bool is_already_entered;
+
+    private GameObject floor;
+    private FloorManager floorManager;
+
     private int hp;
-    private int i;
+
     // Start is called before the first frame update
     void Start()
     {
         isOnFloor = true;
+        is_already_entered = false;
         hp = 2;
+
     }
 
     void OnCollisionStay(Collision other)
@@ -34,18 +41,33 @@ public class IwashiController : MonoBehaviour
                 Vector3 force = new Vector3 (0.0f, my_force, 0.0f); 
                 rb.AddForce (force, ForceMode.Impulse);
                 isOnFloor = false;
+                is_already_entered = true;
             }
 
         }
     }
+
     void OnCollisionEnter(Collision other)
     {
-        isOnFloor = true;
-        if (other.gameObject.tag != "Floor")
+        if (is_already_entered)
         {
-            GameOver();
-
+            is_already_entered = false;
+            if (other.gameObject.tag != "Floor")
+            {
+                if (survival_mode)
+                {
+                    GameOver();
+                }
+            }
+            else
+            {
+                floor = other.gameObject;
+                floorManager = floor.GetComponent<FloorManager>();
+                floorManager.WaterLanding();
+                isOnFloor = true;
+            }
         }
+        
     }
 
     // Update is called once per frame
@@ -90,11 +112,6 @@ public class IwashiController : MonoBehaviour
         tempY = Mathf.Clamp(tempY, -rotateAngle, rotateAngle);
         currentRotation.y = tempY;
         this.transform.localRotation = Quaternion.Euler(currentRotation);
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Boost();
-        }
     }
 
     void GameOver()
@@ -102,10 +119,4 @@ public class IwashiController : MonoBehaviour
         SceneManager.LoadScene("Title");
     }
 
-    async Task Boost(){
-        Debug.Log("Boost!!");
-        for(i=boostDuration; i<0; i--){
-            speed = speed + boostSpeed*i;
-        }
-    }
 }

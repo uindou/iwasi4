@@ -15,8 +15,8 @@ public class meshChanger : MonoBehaviour
         Vector3[] vertices = meshFilter.mesh.vertices;//メッシュを構成する点集合の座標
         float center;
         var (minV,maxV) = returnMinMax(vertices);
-        center = (maxV.x+minV.x)/2;
         center = 25;
+
 
         for (int i = 0; i < vertices.Length; i++)
         {
@@ -38,6 +38,8 @@ public class meshChanger : MonoBehaviour
         MeshCollider meshcollider = this.gameObject.GetComponent<MeshCollider>();
         if(!meshcollider) meshcollider = this.gameObject.AddComponent<MeshCollider>();
     }
+
+
 
     (Vector3,Vector3) returnMinMax(Vector3[] vec)
     //meshを構成する点(vertice)のうち、最大の(x,y,z)と最小の(x,y,z)を返す
