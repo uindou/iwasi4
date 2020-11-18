@@ -12,15 +12,18 @@ public class IwashiController : MonoBehaviour
     public float rotateAngle;
     public float d_theta;
     public float speed;
+    public float boostSpeed;
     public float my_force;
     private bool isOnFloor;
     public bool survival_mode;
     private bool is_already_entered;
+    public GameObject boostEffect;
 
     private GameObject floor;
     private FloorManager floorManager;
 
     private int hp;
+    private int i;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +81,7 @@ public class IwashiController : MonoBehaviour
         float tempY;
 
         // 前に移動
-        this.transform.localPosition += new Vector3(0, 0, speed);
+        // this.transform.localPosition += new Vector3(0, 0, speed);
 
         // オイラー角の範囲を[-180,180]に変換
         if (currentRotation.y <= 180f)
@@ -107,6 +110,16 @@ public class IwashiController : MonoBehaviour
         else
         {
             tempY += tempY >= 0 ? -d_theta * Mathf.Abs(tempY*0.1f) : d_theta * Mathf.Abs(tempY*0.1f);
+        }
+
+
+        if (Input.GetKey(KeyCode.DownArrow)){
+            boostEffect.SetActive(true);
+            this.transform.localPosition += new Vector3(0, 0, boostSpeed);
+        }
+        else {
+            boostEffect.SetActive(false);
+            this.transform.localPosition += new Vector3(0, 0, speed);
         }
 
         tempY = Mathf.Clamp(tempY, -rotateAngle, rotateAngle);

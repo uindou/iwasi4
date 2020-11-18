@@ -463,9 +463,9 @@ MonoBehaviour:
   rotateAngle: 15
   d_theta: 2
   speed: 0.1
-  boostSpeed: 1
-  boostDuration: 1000
+  boostSpeed: 0.12
   my_force: 5
+  survival_mode: 0
 --- !u!1 &906879454
 GameObject:
   m_ObjectHideFlags: 0
