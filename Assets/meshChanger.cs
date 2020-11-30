@@ -8,9 +8,11 @@ public class meshChanger : MonoBehaviour
     public float radius;
     public float swell;
     public float sharow;
+    public GameObject rock;
     // Start is called before the first frame update
     void Awake()
     {
+
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();
         Vector3[] vertices = meshFilter.mesh.vertices;//メッシュを構成する点集合の座標
         float center;
