@@ -17,7 +17,7 @@ public class IwashiController : MonoBehaviour
     private bool isOnFloor;
     public bool survival_mode;
     private bool is_already_entered;
-    public GameObject boostEffect;
+    //public GameObject boostEffect;
 
     private GameObject floor;
     private FloorManager floorManager;
@@ -113,6 +113,7 @@ public class IwashiController : MonoBehaviour
         }
 
 
+        /*
         if (Input.GetKey(KeyCode.DownArrow)){
             boostEffect.SetActive(true);
             this.transform.localPosition += new Vector3(0, 0, boostSpeed);
@@ -121,6 +122,7 @@ public class IwashiController : MonoBehaviour
             boostEffect.SetActive(false);
             this.transform.localPosition += new Vector3(0, 0, speed);
         }
+        */
 
         tempY = Mathf.Clamp(tempY, -rotateAngle, rotateAngle);
         currentRotation.y = tempY;
