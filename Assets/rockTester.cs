@@ -11,11 +11,13 @@ public class rockTester : MonoBehaviour
     public int rock_num;
     public bool checkok;
     public List<(float, float)> zahyos;
+    public List<(float, float)> glasses;
     private List<GameObject> rocks;
     // Start is called before the first frame update
     void Start()
     {
         zahyos = new List<(float, float)>();
+        glasses = new List<(float, float)>();
         checkok = false;
         rocks = new List<GameObject>();
         for(int i = 0; i < rock_num; i++)
@@ -42,8 +44,13 @@ public class rockTester : MonoBehaviour
                     zahyos.Add((tr.position.x, tr.position.z));
                     //Debug.Log((tr.position.x, tr.position.z));
                 }
+                else
+                {
+                    glasses.Add((tr.position.x, tr.position.z));
+                }
             }
             ShowListContentsInTheDebugLog(zahyos);
+            ShowListContentsInTheDebugLog(glasses);
             checkok = false;
         }
     }
