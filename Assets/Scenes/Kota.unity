@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: {fileID: 1809190008}
-  Player: {fileID: 0}
+  Player: {fileID: 1787545192}
   deletePoint: -75
 --- !u!4 &2283488
 Transform:
@@ -7229,6 +7229,7 @@ MonoBehaviour:
   radius: 5
   swell: 3
   sharow: 0.7
+  rock: {fileID: 0}
 --- !u!1 &1809190008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
