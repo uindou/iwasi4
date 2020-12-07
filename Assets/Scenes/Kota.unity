@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: {fileID: 1809190008}
-  Player: {fileID: 0}
+  Player: {fileID: 1787545192}
   deletePoint: -75
 --- !u!4 &2283488
 Transform:

@@ -16,7 +16,7 @@ public class StageManager : MonoBehaviour
     void Awake()
     {
         q = new Queue<GameObject>();
-        stageNum = 3;
+        stageNum = 5;
         currentZ = stageNum - 1;
         for (int i = 0; i < stageNum; i++)
         {
