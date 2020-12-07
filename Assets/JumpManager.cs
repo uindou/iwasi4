@@ -8,6 +8,7 @@ using UnityEngine;
 public class JumpManager : MonoBehaviour
 {
     Animator animator;
+    private bool canJump = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,10 @@ public class JumpManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow)){
+        animator.SetBool("jump",false);
+        
+        if (Input.GetKey(KeyCode.UpArrow) && canJump==true){
+            canJump = false;
             animator.SetBool("jump",true);
         }
     }
