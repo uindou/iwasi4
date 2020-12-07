@@ -20,9 +20,13 @@ public class JumpManager : MonoBehaviour
     {
         animator.SetBool("jump",false);
         
-        if (Input.GetKey(KeyCode.UpArrow) && canJump==true){
+        if (Input.GetKey(KeyCode.UpArrow) && canJump){
             canJump = false;
             animator.SetBool("jump",true);
+        }
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            canJump = true;
         }
     }
 }
