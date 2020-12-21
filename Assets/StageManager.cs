@@ -78,7 +78,15 @@ public class StageManager : MonoBehaviour
         //石を追加する処理
         partsPutter rock;
         rock = target.GetComponent<partsPutter>();
-        rock.Init((float)currentZ*50,obj.transform);
+        rock.Init(obj.transform,true);
+        //右のやつに草木を追加
+        partsPutter rock2;
+        rock2 = objR.GetComponent<partsPutter>();
+        rock2.Init(objR.transform,false);
+        //左のやつに草木を追加
+        partsPutter rock3;
+        rock3 = objL.GetComponent<partsPutter>();
+        rock3.Init(objL.transform,false);
     }
 
     void StageDelete((GameObject, GameObject, GameObject) objs)//ステージとその子供を削除する。
