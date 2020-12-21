@@ -15,6 +15,12 @@ public class partsPutter : MonoBehaviour
     public int setTrees;
     private List<(double, double)> zahyos;
     private List<(double, double)> ground;
+    public float fallY = 0;
+    private float thetaX;
+    private float thetaY;
+    private float thetaZ;
+    private Quaternion RandomQ;
+
     //ステージ生成時に呼び出されて、与えられたオブジェクトの子供になる石,木を配置する。削除はstage削除の責任
     public void Init(float thisZ, Transform obj)
     {
@@ -31,7 +37,12 @@ public class partsPutter : MonoBehaviour
         {
             var (a, b) = zahyos[Random.Range(0, leng)];
 
-            Instantiate(rock, new Vector3((float)a, 0, thisZ + (float)b), Quaternion.identity).transform.parent = obj;
+            thetaX = Random.Range(-180f,180f);
+            thetaY = Random.Range(-180f,180f);
+            thetaZ = Random.Range(-180f,180f);
+            RandomQ = Quaternion.Euler(thetaX,thetaY,thetaZ);
+
+            Instantiate(rock, new Vector3((float)a, fallY, thisZ + (float)b), RandomQ).transform.parent = obj;
         }
     }
     
