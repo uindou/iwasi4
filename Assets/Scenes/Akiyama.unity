@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  swell: 3
+  swell: 1
   sharow: 0.7
   rock: {fileID: 0}
 --- !u!1 &443743981
