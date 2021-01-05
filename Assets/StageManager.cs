@@ -7,25 +7,47 @@ public class StageManager : MonoBehaviour
     private int stageNum;
     public GameObject Stage;
     public GameObject subStage;
+    public GameObject Sea;//ゴール後の海を生成するやつ
     public Transform Player;
     public float deletePoint;
 
     private Queue<(GameObject, GameObject, GameObject)> q;
     private Transform OldStage;
     private int currentZ;
-
+    private int stageLength;
+    private List<string> contents;
+    //仕様：シーンごとのステージ配置(川、湖、ゴールとかの情報が入った配列)をDataBaseから取ってくる→Stageを生成→生成したステージに、川・湖等に応じたスクリプトを動的につける
+    //川→RiverMesh,湖→LakeMesh,ゴール→GoalMesh
     void Awake()
     {
         q = new Queue<(GameObject,GameObject,GameObject)>();
-        stageNum = 5;
+        contents = DataBase.StageContents();
+        Debug.Log(contents);
+        stageLength = contents.Count;
+        stageNum = 5;//stageLengthより小さくすること！
         currentZ = - 1;
         for (int i = 0; i < stageNum; i++)
         {
             currentZ += 1;
+            string cont = contents[currentZ];
             Vector3 zahyo = new Vector3(0, 0, i * 50);
             Vector3 zahyoR = new Vector3(50, 0, i * 50);
             Vector3 zahyoL = new Vector3(-50, 0, i * 50);
             GameObject obj = Instantiate(Stage, zahyo, Quaternion.identity);
+            //メッシュを変形させるスクリプトを付与
+            GameObject objc = obj.transform.GetChild(0).gameObject;
+            switch (cont)
+            {
+                case "N":
+                    objc.AddComponent<RiverMesh>();
+                    break;
+                case "G":
+                    objc.AddComponent<RiverMesh>();
+                    break;
+                default:
+                    objc.AddComponent<RiverMesh>();
+                    break;
+            }
             GameObject objR = Instantiate(subStage, zahyoR, Quaternion.identity);
             GameObject objL = Instantiate(subStage, zahyoL, Quaternion.identity);
             var objs = (obj, objR, objL);
@@ -66,16 +88,50 @@ public class StageManager : MonoBehaviour
         OldStage = obj.transform;
     }
     void StagePush()
-    { 
-        Vector3 zahyo = new Vector3(0, 0, currentZ * 50);
-        Vector3 zahyoR = new Vector3(50, 0, currentZ * 50);
-        Vector3 zahyoL = new Vector3(-50, 0, currentZ * 50);
-        GameObject obj = Instantiate(Stage, zahyo, Quaternion.identity);
-        GameObject objR = Instantiate(subStage, zahyoR, Quaternion.identity);
-        GameObject objL = Instantiate(subStage, zahyoL, Quaternion.identity);
-        var objs = (obj, objR, objL);
-        q.Enqueue(objs);
-        StageInit(objs);
+    {
+       
+
+
+        if (currentZ < stageLength)
+        {
+            Vector3 zahyo = new Vector3(0, 0, currentZ * 50);
+            Vector3 zahyoR = new Vector3(50, 0, currentZ * 50);
+            Vector3 zahyoL = new Vector3(-50, 0, currentZ * 50);
+            GameObject obj = Instantiate(Stage, zahyo, Quaternion.identity);
+            GameObject objc = obj.transform.GetChild(0).gameObject;
+            string cont = contents[currentZ];
+            switch (cont)
+            {
+                case "N":
+                    objc.AddComponent<RiverMesh>();
+                    Debug.Log("1");
+                    break;
+                case "G":
+                    Debug.Log("2");
+                    objc.AddComponent<GoalMesh>();
+                    break;
+                default:
+                    objc.AddComponent<RiverMesh>();
+                    break;
+            }
+            GameObject objR = Instantiate(subStage, zahyoR, Quaternion.identity);
+            GameObject objL = Instantiate(subStage, zahyoL, Quaternion.identity);
+            var objs = (obj, objR, objL);
+            q.Enqueue(objs);
+            //StageInit(objs);
+        }
+        else
+        {
+            Vector3 zahyo = new Vector3(0, -0.9f, currentZ * 50);
+            Vector3 zahyoR = new Vector3(50, -0.9f, currentZ * 50);
+            Vector3 zahyoL = new Vector3(-50, -0.9f, currentZ * 50);
+            GameObject obj = Instantiate(Sea, zahyo, Quaternion.identity);
+            GameObject objR = Instantiate(Sea, zahyoR, Quaternion.identity);
+            GameObject objL = Instantiate(Sea, zahyoL, Quaternion.identity);
+            var objs = (obj, objR, objL);
+            q.Enqueue(objs);
+        }
+
         currentZ += 1;
     }
     void FirstStageInit((GameObject, GameObject, GameObject) objs)

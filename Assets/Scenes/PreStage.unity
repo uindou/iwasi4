@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 1809190008}
   subStage: {fileID: 1631855670}
+  Sea: {fileID: 675508113}
   Player: {fileID: 1891918905}
   deletePoint: -75
 --- !u!4 &2283488
@@ -292,7 +293,6 @@ GameObject:
   - component: {fileID: 97928210}
   - component: {fileID: 97928214}
   - component: {fileID: 97928212}
-  - component: {fileID: 97928215}
   m_Layer: 0
   m_Name: AnimeParent
   m_TagString: Untagged
@@ -412,22 +412,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.51220703, y: 0.3903334, z: 2.2615337}
   m_Center: {x: 0.0154361725, y: 0.3048333, z: -0.073699}
---- !u!54 &97928215
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97928208}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &131080235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1384,6 +1368,7 @@ GameObject:
   - component: {fileID: 167187529}
   - component: {fileID: 167187528}
   - component: {fileID: 167187530}
+  - component: {fileID: 167187531}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1430,6 +1415,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 1
+--- !u!114 &167187531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167187527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a97a67204db5a64f8a1c81be9163f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &432551012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1437,9 @@ GameObject:
   m_Component:
   - component: {fileID: 432551017}
   - component: {fileID: 432551015}
+  - component: {fileID: 432551014}
   - component: {fileID: 432551013}
+  - component: {fileID: 432551016}
   m_Layer: 0
   m_Name: AnimeGrandParent
   m_TagString: Untagged
@@ -1460,10 +1459,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9d5b984ac698458ca346e11d26c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advanceSpeed: 0.6
+  advanceSpeed: 1
   yawSpeed: 0.1
   rotateAngle: 15
   d_theta: 2
+--- !u!65 &432551014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432551012}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48812294, y: 0.3373394, z: 2.1237755}
+  m_Center: {x: -0.0019922256, y: 0.3313303, z: -0.0990448}
 --- !u!23 &432551015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1505,6 +1517,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &432551016
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432551012}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!4 &432551017
 Transform:
   m_ObjectHideFlags: 0
@@ -1667,6 +1695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a32147e38101fd48876749fd208348d, type: 3}
+--- !u!1 &675508113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bcae914220acd4907840a029bb9d9aec, type: 3}
+  m_PrefabInstance: {fileID: 1690429268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &906879454
 GameObject:
   m_ObjectHideFlags: 0
@@ -7185,6 +7218,7 @@ MonoBehaviour:
   setStones: 5
   setGrasses: 1000
   setTrees: 15
+  fallY: 0
 --- !u!23 &1631855674
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8035,7 +8069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8100,22 +8134,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
   m_PrefabInstance: {fileID: 1803974873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1803974875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803974874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36089d264ac81904db54ebdf1e43a473, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 5
-  swell: 3
-  sharow: 0.7
-  rock: {fileID: 0}
 --- !u!114 &1803974876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8134,7 +8152,7 @@ MonoBehaviour:
   setStones: 5
   setGrasses: 1000
   setTrees: 15
-  fallY: -1
+  fallY: 0
 --- !u!1 &1809190008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
