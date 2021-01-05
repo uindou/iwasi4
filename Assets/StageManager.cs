@@ -30,7 +30,14 @@ public class StageManager : MonoBehaviour
             GameObject objL = Instantiate(subStage, zahyoL, Quaternion.identity);
             var objs = (obj, objR, objL);
             q.Enqueue(objs);
-            StageInit(objs);
+            if (i == 0)
+            {
+                FirstStageInit(objs);
+            }
+            else
+            {
+                StageInit(objs);
+            }
         }
 
         var (obj2, obj2R, obj2L) = q.Peek();
@@ -70,6 +77,23 @@ public class StageManager : MonoBehaviour
         q.Enqueue(objs);
         StageInit(objs);
         currentZ += 1;
+    }
+    void FirstStageInit((GameObject, GameObject, GameObject) objs)
+    {
+        var (obj, objR, objL) = objs;
+        GameObject target = obj.transform.GetChild(0).gameObject;
+        //石を追加する処理
+        partsPutter rock;
+        rock = target.GetComponent<partsPutter>();
+        rock.Init(obj.transform,false);
+        //右のやつに草木を追加
+        partsPutter rock2;
+        rock2 = objR.GetComponent<partsPutter>();
+        rock2.Init(objR.transform, false);
+        //左のやつに草木を追加
+        partsPutter rock3;
+        rock3 = objL.GetComponent<partsPutter>();
+        rock3.Init(objL.transform, false);
     }
     void StageInit((GameObject, GameObject, GameObject) objs)//ステージの付属パーツ(石や木)を作成して、ステージの子供にする。(ステージ自体の作成はStagePushで)
     {
