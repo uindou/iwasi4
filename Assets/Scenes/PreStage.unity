@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: {fileID: 1809190008}
   subStage: {fileID: 1631855670}
+  Sea: {fileID: 675508113}
   Player: {fileID: 1891918905}
   deletePoint: -75
 --- !u!4 &2283488
@@ -1367,6 +1368,7 @@ GameObject:
   - component: {fileID: 167187529}
   - component: {fileID: 167187528}
   - component: {fileID: 167187530}
+  - component: {fileID: 167187531}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1413,6 +1415,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 1
+--- !u!114 &167187531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167187527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a97a67204db5a64f8a1c81be9163f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &432551012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9d5b984ac698458ca346e11d26c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advanceSpeed: 0.02
+  advanceSpeed: 1
   yawSpeed: 0.1
   rotateAngle: 15
   d_theta: 2
@@ -1681,6 +1695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a32147e38101fd48876749fd208348d, type: 3}
+--- !u!1 &675508113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bcae914220acd4907840a029bb9d9aec, type: 3}
+  m_PrefabInstance: {fileID: 1690429268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &906879454
 GameObject:
   m_ObjectHideFlags: 0
@@ -7199,6 +7218,7 @@ MonoBehaviour:
   setStones: 5
   setGrasses: 1000
   setTrees: 15
+  fallY: 0
 --- !u!23 &1631855674
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8049,7 +8069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8114,22 +8134,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}
   m_PrefabInstance: {fileID: 1803974873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1803974875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803974874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36089d264ac81904db54ebdf1e43a473, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 5
-  swell: 3
-  sharow: 0.7
-  rock: {fileID: 0}
 --- !u!114 &1803974876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8148,6 +8152,7 @@ MonoBehaviour:
   setStones: 5
   setGrasses: 1000
   setTrees: 15
+  fallY: 0
 --- !u!1 &1809190008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7855bfb968dcab74c87aa7a3b976d1ba, type: 3}

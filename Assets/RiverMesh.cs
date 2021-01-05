@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Security.Cryptography;
 
-public class meshChanger : MonoBehaviour
+public class RiverMesh : MonoBehaviour
 {
-    public float radius;
-    public float swell;
-    public float sharow;
-    public GameObject rock;
+    private float radius;
+    private float swell;
+    private float sharow;
     // Start is called before the first frame update
     void Awake()
     {
-
+        radius = 5f;
+        swell = 3f;
+        sharow = 0.7f;
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();
         Vector3[] vertices = meshFilter.mesh.vertices;//メッシュを構成する点集合の座標
         float center;
-        var (minV,maxV) = returnMinMax(vertices);
         center = 25;
 
 
@@ -39,33 +39,6 @@ public class meshChanger : MonoBehaviour
 
         MeshCollider meshcollider = this.gameObject.GetComponent<MeshCollider>();
         if(!meshcollider) meshcollider = this.gameObject.AddComponent<MeshCollider>();
-    }
-
-
-
-    (Vector3,Vector3) returnMinMax(Vector3[] vec)
-    //meshを構成する点(vertice)のうち、最大の(x,y,z)と最小の(x,y,z)を返す
-    {
-        float mx, my, mz, Mx, My, Mz;
-        float inf = 1000;
-        mx = inf;
-        my = inf;
-        mz = inf;
-        Mx = -inf;
-        My = -inf;
-        Mz = -inf;
-        foreach(Vector3 ve in vec)
-        {
-            mx = Mathf.Min(mx, ve.x);
-            my = Mathf.Min(my, ve.y);
-            mx = Mathf.Min(mz, ve.z);
-            Mx = Mathf.Max(Mx, ve.x);
-            My = Mathf.Max(My, ve.y);
-            Mz = Mathf.Max(Mz, ve.z);
-        }
-        Vector3 minV = new Vector3(mx,my,mz);
-        Vector3 maxV = new Vector3(Mx,My,Mz);
-        return (minV,maxV);
     }
 
     // Update is called once per frame
