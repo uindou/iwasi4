@@ -42,7 +42,10 @@ public class StageManager : MonoBehaviour
                     objc.AddComponent<RiverMesh>();
                     break;
                 case "G":
-                    objc.AddComponent<RiverMesh>();
+                    objc.AddComponent<GoalMesh>();
+                    break;
+                case "L":
+                    objc.AddComponent<LakeMesh>();
                     break;
                 default:
                     objc.AddComponent<RiverMesh>();
@@ -109,6 +112,10 @@ public class StageManager : MonoBehaviour
                 case "G":
                     Debug.Log("2");
                     objc.AddComponent<GoalMesh>();
+                    break;
+                case "L":
+                    Debug.Log("3");
+                    objc.AddComponent<LakeMesh>();
                     break;
                 default:
                     objc.AddComponent<RiverMesh>();
