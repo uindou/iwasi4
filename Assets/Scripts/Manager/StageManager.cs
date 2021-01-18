@@ -127,7 +127,7 @@ public class StageManager : MonoBehaviour
             q.Enqueue(objs);
             //StageInit(objs);
         }
-        else
+        else// ALREADY GOAL
         {
             Vector3 zahyo = new Vector3(0, -0.9f, currentZ * 50);
             Vector3 zahyoR = new Vector3(50, -0.9f, currentZ * 50);
@@ -159,7 +159,7 @@ public class StageManager : MonoBehaviour
         rock3.Init(objL.transform, false);
     }
     void StageInit((GameObject, GameObject, GameObject) objs)//ステージの付属パーツ(石や木)を作成して、ステージの子供にする。(ステージ自体の作成はStagePushで)
-    {
+    {//partsPutterは各ステージごとに、タイルオブジェクトにつけておく。その際、つけるスクリプトはpartsPutterを継承すること。
         var (obj, objR, objL) = objs;
         GameObject target = obj.transform.GetChild(0).gameObject;
         //石を追加する処理
