@@ -5,24 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class DataBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public static List<string> StageContents()
     {
         List<string> contents;
         switch (SceneManager.GetActiveScene().name)
         {
-            case "Stage1":
+            case "Stage":
                 contents = new List<string>() { "N", "N", "N", "N", "G" };
                 break;
             default:
@@ -38,9 +28,16 @@ public class DataBase : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             default:
-                s = 50 * 7-25;
+                s = 50 * 8-25;
                 break;
         }
         return s;
     }
+}
+
+enum Mode
+{
+    Easy=1,
+    Normal=2,
+    Difficult=3
 }

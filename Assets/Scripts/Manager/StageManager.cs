@@ -90,6 +90,12 @@ public class StageManager : MonoBehaviour
         var (obj, objR, objL) = q.Peek();
         OldStage = obj.transform;
     }
+    public bool Clear()
+    {
+        return currentZ >= stageLength;
+    }
+
+
     void StagePush()
     {
        
