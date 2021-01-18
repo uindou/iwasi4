@@ -1718,7 +1718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9d5b984ac698458ca346e11d26c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advanceSpeed: 0.5
+  advanceSpeed: 0.3
   yawSpeed: 0.1
   rotateAngle: 15
   d_theta: 2
