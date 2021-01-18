@@ -26,7 +26,7 @@ public class DataBase : MonoBehaviour
                 contents = new List<string>() { "N", "N", "N", "N", "G" };
                 break;
             default:
-                contents = new List<string>() { "N", "N", "N", "N","N","N", "G" };
+                contents = new List<string>() { "N", "N", "N", "N","N","L","N", "G" };
                 break;
         }
         Debug.Log(contents);
