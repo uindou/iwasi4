@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Stage1partsPutter : partsPutter
 {
     //ステージ
     private Queue<GameObject> q;
     public GameObject rock;
     public GameObject grass;
-    public GameObject tree;
-    public int setStones;
-    public int setGrasses;
-    public int setTrees;
+    private GameObject tree;
+    private int setStones;
+    private int setGrasses;
+    private int setTrees;
     List<(double, double)> zahyos;
     List<(double, double)> ground;
     public float fallY = 0;
@@ -19,6 +20,12 @@ public class Stage1partsPutter : partsPutter
     private float thetaY;
     private float thetaZ;
     private Quaternion RandomQ;
+    void Awake()
+    {
+        setGrasses = 30;
+        setStones = 10;
+        setTrees = 20;
+    }
 
     public override void Init(Transform obj, bool isCenter)
     {
