@@ -79,7 +79,16 @@ public class StageManager : MonoBehaviour
     void Update()
     {
         CheckBehind();
+        if (currentZ>=stageLength)
+        {
+            AfterExecute();
+        }
     }
+    void AfterExecute()
+    {
+
+    }
+
     void CheckBehind()//一番後ろのステージのz座標を見て、十分後ろなら削除。そして、一番前に新しく生成
     {
         if (OldStage.position.z - Player.position.z < deletePoint)
@@ -89,10 +98,6 @@ public class StageManager : MonoBehaviour
         }
         var (obj, objR, objL) = q.Peek();
         OldStage = obj.transform;
-    }
-    public bool Clear()
-    {
-        return currentZ >= stageLength;
     }
 
 
