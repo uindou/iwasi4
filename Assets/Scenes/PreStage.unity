@@ -245,7 +245,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38423440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00040084}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 3.9254, y: 3.9254, z: 3.9254}
   m_Children:
   - {fileID: 562187942}
@@ -257,7 +257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.0001, y: 1013}
+  m_AnchoredPosition: {x: -8.0001, y: 858}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38423442
@@ -2608,13 +2608,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906879454}
-  m_LocalRotation: {x: 0.05730636, y: -0, z: -0, w: 0.9983567}
-  m_LocalPosition: {x: 25, y: 4.38, z: 15.54}
+  m_LocalRotation: {x: 0.004068028, y: -0, z: -0, w: 0.9999918}
+  m_LocalPosition: {x: 25, y: 2.64, z: 15.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 6.57, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.466, y: 0, z: 0}
 --- !u!114 &906879458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8691,7 +8691,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503882588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1.375577, y: 7.585402, z: 2.6840525}
   m_Children:
   - {fileID: 920665352}
@@ -8702,7 +8702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -399, y: -953}
+  m_AnchoredPosition: {x: -399, y: -840}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503882590
@@ -9154,10 +9154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock: {fileID: 917762437}
   grass: {fileID: 1352772136}
-  tree: {fileID: 2123657807}
-  setStones: 0
-  setGrasses: 10
-  setTrees: 10
   fallY: 0
 --- !u!23 &1631855674
 MeshRenderer:
@@ -10203,10 +10199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock: {fileID: 917762437}
   grass: {fileID: 1352772136}
-  tree: {fileID: 2123657807}
-  setStones: 5
-  setGrasses: 10
-  setTrees: 10
   fallY: 0
 --- !u!1 &1808608379
 GameObject:
@@ -10652,8 +10644,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2afb700ab12fcc4db5b9567f3a698dd, type: 3}
---- !u!1 &2123657807 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: d2afb700ab12fcc4db5b9567f3a698dd, type: 3}
-  m_PrefabInstance: {fileID: 2123657806}
-  m_PrefabAsset: {fileID: 0}
