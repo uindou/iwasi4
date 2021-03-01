@@ -79,15 +79,9 @@ public class StageManager : MonoBehaviour
     void Update()
     {
         CheckBehind();
-        if (currentZ>=stageLength)
-        {
-            AfterExecute();
-        }
-    }
-    void AfterExecute()
-    {
 
     }
+
 
     void CheckBehind()//一番後ろのステージのz座標を見て、十分後ろなら削除。そして、一番前に新しく生成
     {
@@ -151,6 +145,10 @@ public class StageManager : MonoBehaviour
         }
 
         currentZ += 1;
+    }
+    public bool Clear()
+    {
+        return currentZ >= stageLength+4;
     }
     void FirstStageInit((GameObject, GameObject, GameObject) objs)
     {

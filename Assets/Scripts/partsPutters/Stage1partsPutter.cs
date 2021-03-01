@@ -9,7 +9,7 @@ public class Stage1partsPutter : partsPutter
     private Queue<GameObject> q;
     public GameObject rock;
     public GameObject grass;
-    private GameObject tree;
+    public GameObject tree;
     private int setStones;
     private int setGrasses;
     private int setTrees;
@@ -20,7 +20,7 @@ public class Stage1partsPutter : partsPutter
     private float thetaY;
     private float thetaZ;
     private Quaternion RandomQ;
-    void Awake()
+    public override void Awake()
     {
         setGrasses = 30;
         setStones = 10;

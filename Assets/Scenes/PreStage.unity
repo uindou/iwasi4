@@ -1718,7 +1718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9d5b984ac698458ca346e11d26c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advanceSpeed: 0.3
+  advanceSpeed: 0.5
   yawSpeed: 0.1
   rotateAngle: 15
   d_theta: 2
@@ -2628,6 +2628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 432551012}
+  stageManager: {fileID: 2283486}
 --- !u!1 &917762437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000010869019282, guid: d7ba4fe833670a140b9b6085652f0e26, type: 3}
