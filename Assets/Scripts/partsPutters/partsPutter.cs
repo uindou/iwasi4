@@ -6,6 +6,9 @@ using System.Linq;
 public class partsPutter : MonoBehaviour
 {
 
+    public virtual void Awake()
+    {
+    }
 
     //ステージ生成時に呼び出されて、与えられたオブジェクトの子供になる石,木を配置する。削除はstage削除の責任
     public virtual void Init(Transform obj,bool isCenter)

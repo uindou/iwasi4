@@ -652,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock: {fileID: 1213824609}
   grass: {fileID: 1836201252}
+  tree: {fileID: 503730855}
   fallY: 0
 --- !u!1001 &278223790
 PrefabInstance:
@@ -1306,7 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9d5b984ac698458ca346e11d26c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advanceSpeed: 0.1
+  advanceSpeed: 0.7
   yawSpeed: 0.1
   rotateAngle: 15
   d_theta: 2
@@ -6252,6 +6253,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &503730855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: d2afb700ab12fcc4db5b9567f3a698dd, type: 3}
+  m_PrefabInstance: {fileID: 233381733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &563775912
 GameObject:
   m_ObjectHideFlags: 0
@@ -6438,6 +6444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 384225040}
+  stageManager: {fileID: 1407648097}
 --- !u!81 &598049427
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6747,6 +6754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock: {fileID: 1213824609}
   grass: {fileID: 1836201252}
+  tree: {fileID: 503730855}
   fallY: 0
 --- !u!23 &711229884
 MeshRenderer:
